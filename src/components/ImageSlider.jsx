@@ -2,7 +2,9 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 const ImageSlider = ({ images }) => {
   const responsive = {
     superLargeDesktop: {
@@ -25,29 +27,21 @@ const ImageSlider = ({ images }) => {
 
   return (
     <div className="relative bg-zinc-200 w-1/2 mx-auto rounded-md">
-      <Carousel
-        responsive={responsive}
-        infinite={true}
-        autoPlay={false}
-        customLeftArrow={
-          <button className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">
-            &larr;
-          </button>
-        }
-        customRightArrow={
-          <button className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full">
-            &rarr;
-          </button>
-        }
-      >
+     
         
-
+        <Swiper
+        modules={[Autoplay]}
+        autoplay={{ delay: 3000}}
+        loop={true}
+        className="w-full h-64"
+      >
         
         
  {images.map((image, index) => (
+  <SwiperSlide key={index}>
     <div 
       key={index} 
-      className="flex items-center space-x-4 p-4 bg-white shadow-lg rounded-lg border border-gray-200 
+      className="flex h-full items-center space-x-4 p-4 bg-white shadow-lg rounded-lg border border-gray-200 
                  transition-all duration-300 hover:shadow-xl hover:border-gray-300"
     >
       <img 
@@ -62,8 +56,9 @@ const ImageSlider = ({ images }) => {
         <p className="text-sm text-gray-600 mt-1 sm:text-base">{image.text}</p>
       </div>
     </div>
+  </SwiperSlide>
   ))}
-      </Carousel>
+      </Swiper>
     </div>
   );
 };

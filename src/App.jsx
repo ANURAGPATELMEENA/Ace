@@ -11,6 +11,7 @@ import ImageSlider from './components/ImageSlider';
 import { SliderData } from './SliderData';
 import WhyUs from './components/WhyUs';
 
+
 function App() {
   
 
@@ -21,7 +22,10 @@ function App() {
     <Sections />
     <div className="text-lg font-semibold text-slate-200 flex justify-center uppercase" >our team</div>
     <ImageSlider images={SliderData}/>
+
+
     <WhyUs images={SliderData}/>
+
     <Footer />
   </div>
   )
