@@ -7,7 +7,9 @@ import Hero from './components/Hero'
 import Sections from './components/Sections'
 import Footer from './components/Footer'
 
-
+import ImageSlider from './components/ImageSlider';
+import { SliderData } from './SliderData';
+import WhyUs from './components/WhyUs';
 
 function App() {
   
@@ -17,6 +19,9 @@ function App() {
     <Header />
     <Hero />
     <Sections />
+    <div className="text-lg font-semibold text-slate-200 flex justify-center uppercase" >our team</div>
+    <ImageSlider images={SliderData}/>
+    <WhyUs images={SliderData}/>
     <Footer />
   </div>
   )
